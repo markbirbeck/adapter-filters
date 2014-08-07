@@ -16,9 +16,12 @@
     "url": "http://github.com/stakk/adapter-filters.git"
   },
   "scripts": {
+    "test": "mocha"
   },
   "dependencies": {
   },
   "devDependencies": {
+    "mocha": "~1.21.0",
+    "should": "~4.0.4"
   }
 }
