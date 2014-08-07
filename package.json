@@ -1,0 +1,24 @@
+{
+  "name": "adapter-filters",
+  "version": "0.1.0",
+  "description": "Provides a range of filter functions that can be used with many different template libraries.",
+  "keywords": [
+    "adapter",
+    "filter",
+    "template"
+  ],
+  "homepage": "https://github.com/stakk/adapter-filters",
+  "bugs": "https://github.com/stakk/adapter-filters/issues",
+  "license": "MIT",
+  "main": "./lib/adapter",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stakk/adapter-filters.git"
+  },
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
