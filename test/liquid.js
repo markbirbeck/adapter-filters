@@ -1,9 +1,5 @@
 var facade = require('..');
 
-/**
- * Tests for the Liquid filter functions.
- */
-
 describe('Liquid', function(){
   var filters = facade('liquid');
 
