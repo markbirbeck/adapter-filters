@@ -11,3 +11,7 @@ var base = require('./base');
 /*jshint camelcase:false*/
 
 exports.strip = base.trim;
+
+exports.date = function (date, format){
+  return base.strftime(format, date);
+};
