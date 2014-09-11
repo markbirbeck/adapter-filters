@@ -180,7 +180,7 @@ describe('Liquid', function(){
     it('Time zone name', function(){
       filters
         .date(date, '%Z')
-        .should.equal('BST');
+        .should.equal('UTC');
     });
 
   });

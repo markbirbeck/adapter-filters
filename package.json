@@ -16,7 +16,7 @@
     "url": "http://github.com/stakk/adapter-filters.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "TZ=UTC mocha"
   },
   "dependencies": {
     "strftime": "~0.8.2"
