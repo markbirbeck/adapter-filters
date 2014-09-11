@@ -19,6 +19,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "strftime": "~0.8.2"
   },
   "devDependencies": {
     "mocha": "~1.21.0",
