@@ -10,3 +10,5 @@ var base = require('./base');
 /*jshint camelcase:false*/
 
 exports.condense_spaces = base.condenseSpaces;
+
+exports.strip_slash = base.extract.bind(null, /(.+|^)\/$/);

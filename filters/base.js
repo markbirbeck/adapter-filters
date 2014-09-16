@@ -16,6 +16,15 @@ exports.condenseSpaces = function (s){
  * new functions:
  */
 
+exports.extract = function (re, s){
+  if (typeof s !== 'string'){
+    s = String(s);
+  }
+  var match = s.match(re);
+
+  return match ? match[1] : s;
+};
+
 exports.strftime = function (format, date){
   var d = new Date(date);
 
