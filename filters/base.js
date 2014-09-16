@@ -45,6 +45,13 @@ exports.strftime = function (format, date){
   return strftime(format, d);
 };
 
+exports.titlecase = function (s){
+  if (typeof s !== 'string'){
+    s = String(s);
+  }
+  return require('titlecase')(s);
+};
+
 exports.trim = function (s){
   if (typeof s !== 'string'){
     s = String(s);

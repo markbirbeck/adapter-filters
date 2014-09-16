@@ -121,4 +121,36 @@ describe('Octopress', function(){
         .should.equal('true');
     });
   });
+
+  describe('#titlecase()', function(){
+    it('should turn all words to titlecase', function(){
+      filters
+        .titlecase('A Film Title')
+        .should.equal('A Film Title');
+    });
+
+    it('should ignore small words', function(){
+      filters
+        .titlecase('This is a film title')
+        .should.equal('This Is a Film Title');
+    });
+
+    it('should not fail on null', function(){
+      filters
+        .titlecase(null)
+        .should.equal('Null');
+    });
+
+    it('should cope with numbers', function(){
+      filters
+        .titlecase(123)
+        .should.equal('123');
+    });
+
+    it('should cope with booleans', function(){
+      filters
+        .titlecase(true)
+        .should.equal('True');
+    });
+  });
 });
