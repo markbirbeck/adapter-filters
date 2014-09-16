@@ -11,4 +11,5 @@ var base = require('./base');
 
 exports.condense_spaces = base.condenseSpaces;
 
+exports.shorthand_url = base.extract.bind(null, /https?:\/\/(\S+)/);
 exports.strip_slash = base.extract.bind(null, /(.+|^)\/$/);

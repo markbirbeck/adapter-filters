@@ -40,6 +40,50 @@ describe('Octopress', function(){
     });
   });
 
+  describe('#shorthand_url()', function(){
+    it('should get path from HTTP URL', function(){
+      filters
+        .shorthand_url('http://a/b/c/')
+        .should.equal('a/b/c/');
+    });
+
+    it('should get path from HTTPS URL', function(){
+      filters
+        .shorthand_url('https://a/b/c/')
+        .should.equal('a/b/c/');
+    });
+
+    it('should not get path from FTP URL', function(){
+      filters
+        .shorthand_url('ftp://a/b/c')
+        .should.equal('ftp://a/b/c');
+    });
+
+    it('should leave other strings intact', function(){
+      filters
+        .shorthand_url('this is a string')
+        .should.equal('this is a string');
+    });
+
+    it('should not fail on null', function(){
+      filters
+        .shorthand_url(null)
+        .should.equal('null');
+    });
+
+    it('should cope with numbers', function(){
+      filters
+        .shorthand_url(123)
+        .should.equal('123');
+    });
+
+    it('should cope with booleans', function(){
+      filters
+        .shorthand_url(true)
+        .should.equal('true');
+    });
+  });
+
   describe('#strip_slash()', function(){
     it('should remove trailing slash from path', function(){
       filters
