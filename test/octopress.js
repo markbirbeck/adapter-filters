@@ -26,6 +26,60 @@ describe('Octopress', function(){
     });
   });
 
+  describe('#category_links()', function(){
+    it('should create links from one category', function(){
+      filters
+        .category_links(['rdfa'])
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>'
+        );
+    });
+
+    it('should create links from a list of categories', function(){
+      filters
+        .category_links(['rdfa', 'semantic web'])
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>, ' +
+          '<a class=\'category\' href=\'/categories/semantic%20web\'>semantic web</a>'
+        );
+    });
+
+    it('should sort the list of categories before creating links', function(){
+      filters
+        .category_links(['xforms', 'c++'])
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/c%2B%2B\'>c++</a>, ' +
+          '<a class=\'category\' href=\'/categories/xforms\'>xforms</a>'
+        );
+    });
+
+    it('should cope with non-arrays', function(){
+      filters
+        .category_links('rdfa')
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>'
+        );
+
+      filters
+        .category_links(123)
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/123\'>123</a>'
+        );
+
+      filters
+        .category_links(true)
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/true\'>true</a>'
+        );
+    });
+
+    it('missing array should be empty string', function(){
+      filters
+        .category_links(null)
+        .should.equal('');
+    });
+  });
+
   describe('#condense_spaces()', function(){
     it('should remove duplicate spaces', function(){
       filters

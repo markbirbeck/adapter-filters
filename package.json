@@ -19,6 +19,7 @@
     "test": "TZ=UTC mocha"
   },
   "dependencies": {
+    "lodash": "~2.4.1",
     "strftime": "~0.8.2",
     "titlecase": "~1.0.2"
   },
