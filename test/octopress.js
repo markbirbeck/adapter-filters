@@ -8,6 +8,24 @@ var facade = require('..');
 describe('Octopress', function(){
   var filters = facade('octopress');
 
+  describe('#category_link()', function(){
+    it('should create link from a category', function(){
+      filters
+        .category_link('rdfa')
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>'
+        );
+    });
+
+    it('should create link and URL encode the category', function(){
+      filters
+        .category_link('semantic web')
+        .should.equal(
+          '<a class=\'category\' href=\'/categories/semantic%20web\'>semantic web</a>'
+        );
+    });
+  });
+
   describe('#condense_spaces()', function(){
     it('should remove duplicate spaces', function(){
       filters
