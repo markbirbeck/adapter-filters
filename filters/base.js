@@ -25,6 +25,13 @@ exports.extract = function (re, s){
   return match ? match[1] : s;
 };
 
+exports.replace = function (re, rep, s){
+  if (typeof s !== 'string'){
+    s = String(s);
+  }
+  return s.replace(new RegExp(re, 'gm'), rep);
+};
+
 exports.strftime = function (format, date){
   var d = new Date(date);
 

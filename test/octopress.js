@@ -112,6 +112,77 @@ describe('Octopress', function(){
     });
   });
 
+  describe('#expand_urls()', function(){
+    it('should map relative URL to an absolute one with no site', function(){
+      filters
+        .expand_urls('<a href="/a/b/c">Article C</a>')
+        .should.equal('<a href="//a/b/c">Article C</a>');
+    });
+
+    it('should not map URL with no root', function(){
+      filters
+        .expand_urls('<a href="a/b/c">Article C</a>')
+        .should.equal('<a href="a/b/c">Article C</a>');
+    });
+
+    it('should map relative URL to an absolute one with site', function(){
+      filters
+        .expand_urls(
+          '<a href="/a/b/c">Article C</a>'
+        , 'http://markbirbeck.com'
+        )
+        .should.equal(
+          '<a href="http://markbirbeck.com/a/b/c">Article C</a>'
+        );
+    });
+
+    it('should not get fooled by URLs outside markup', function(){
+      filters
+        .expand_urls(
+          '<a href="/a/b/c">a link to "/a/b/c"</a>', 'http://markbirbeck.com'
+        )
+        .should.equal(
+          '<a href="http://markbirbeck.com/a/b/c">a link to "/a/b/c"</a>'
+        );
+    });
+
+    it('should map multiple URLs', function(){
+      filters
+        .expand_urls(
+          '<a href="/a/b/c">Article C</a><a href="/a/b/D">Article D</a>'
+        , 'http://markbirbeck.com'
+        )
+        .should.equal(
+          '<a href=\"http://markbirbeck.com/a/b/c\">Article C</a>'
+        + '<a href=\"http://markbirbeck.com/a/b/D\">Article D</a>'
+        );
+    });
+
+    it('should return everything if no link is present', function(){
+      filters
+        .expand_urls(
+          '<div>This is content from a different place.</div>'
+        )
+        .should.equal(
+          '<div>This is content from a different place.</div>'
+        );
+    });
+
+    it('should cope with non-strings', function(){
+      filters
+        .expand_urls(123)
+        .should.equal('123');
+
+      filters
+        .expand_urls(true)
+        .should.equal('true');
+
+      filters
+        .expand_urls(null)
+        .should.equal('null');
+    });
+  });
+
   describe('#raw_content()', function(){
     it('should extract raw content from a template with footer', function(){
       filters

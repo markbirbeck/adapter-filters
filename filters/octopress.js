@@ -49,5 +49,13 @@ exports.category_link = function (category){
   return '<a class=\'category\' href=\'' + url + '\'>' + category + '</a>';
 };
 
+exports.expand_urls = function (s, url){
+  return base.replace(
+    '(\\s+(href|src)\\s*=\\s*["|\']{1})(/[^/>]{1}[^"\'>]*)',
+    '$1' + ((!url || url === '') ? '/' : url) + '$3',
+    s
+  );
+};
+
 exports.raw_content = base.extract.bind(null,
     /<div class="entry-content">([\s\S]*)?<\/div>\s*<(footer|\/article)>/);
