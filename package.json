@@ -5,6 +5,9 @@
   "keywords": [
     "adapter",
     "filter",
+    "jekyll",
+    "liquid",
+    "octopress",
     "template"
   ],
   "homepage": "https://github.com/stakk/adapter-filters",
