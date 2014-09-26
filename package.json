@@ -1,10 +1,13 @@
 {
   "name": "adapter-filters",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Provides a range of filter functions that can be used with many different template libraries.",
   "keywords": [
     "adapter",
     "filter",
+    "jekyll",
+    "liquid",
+    "octopress",
     "template"
   ],
   "homepage": "https://github.com/stakk/adapter-filters",
@@ -19,7 +22,9 @@
     "test": "TZ=UTC mocha"
   },
   "dependencies": {
-    "strftime": "~0.8.2"
+    "lodash": "~2.4.1",
+    "strftime": "~0.8.2",
+    "titlecase": "~1.0.2"
   },
   "devDependencies": {
     "mocha": "~1.21.0",

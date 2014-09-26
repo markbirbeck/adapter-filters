@@ -1,3 +1,14 @@
+# 0.3 2014-09-26
+
+* Add Octopress filters:
+  * category_link
+  * category_links
+  * expand_urls
+  * raw_content
+  * shorthand_url
+  * strip_slash
+  * titlecase
+
 # 0.2 2014-09-11
 
 * Ensure that tests always run in the same timezone. [Mark Birbeck]

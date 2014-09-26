@@ -16,6 +16,22 @@ exports.condenseSpaces = function (s){
  * new functions:
  */
 
+exports.extract = function (re, s){
+  if (typeof s !== 'string'){
+    s = String(s);
+  }
+  var match = s.match(re);
+
+  return match ? match[1] : s;
+};
+
+exports.replace = function (re, rep, s){
+  if (typeof s !== 'string'){
+    s = String(s);
+  }
+  return s.replace(new RegExp(re, 'gm'), rep);
+};
+
 exports.strftime = function (format, date){
   var d = new Date(date);
 
@@ -34,6 +50,13 @@ exports.strftime = function (format, date){
     .replace('%X', '%T');
 
   return strftime(format, d);
+};
+
+exports.titlecase = function (s){
+  if (typeof s !== 'string'){
+    s = String(s);
+  }
+  return require('titlecase')(s);
 };
 
 exports.trim = function (s){
