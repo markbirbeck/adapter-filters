@@ -112,6 +112,53 @@ describe('Octopress', function(){
     });
   });
 
+  describe('#raw_content()', function(){
+    it('should extract raw content from a template with footer', function(){
+      filters
+        .raw_content(
+          '<div class="entry-content">this is an article with a footer</div><footer>'
+        )
+        .should.equal(
+          'this is an article with a footer'
+        );
+    });
+
+    it('should extract raw content from a template with no footer', function(){
+      filters
+        .raw_content(
+          '<div class="entry-content">this is an article without a footer</div></article>'
+        )
+        .should.equal(
+          'this is an article without a footer'
+        );
+    });
+
+    it('should return everything if the template is not present', function(){
+      filters
+        .raw_content(
+          '<div>This is content from a different place.</div>'
+        )
+        .should.equal(
+          '<div>This is content from a different place.</div>'
+        );
+    });
+
+    it('should cope with non-strings', function(){
+      filters
+        .raw_content(123)
+        .should.equal('123');
+
+      filters
+        .raw_content(true)
+        .should.equal('true');
+
+      filters
+        .raw_content(null)
+        .should.equal('null');
+    });
+  });
+
+
   describe('#shorthand_url()', function(){
     it('should get path from HTTP URL', function(){
       filters
