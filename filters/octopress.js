@@ -39,11 +39,7 @@ exports.category_links = function (categories){
 };
 
 exports.category_link = function (category){
-  /**
-   * [TODO] Get from config.
-   */
-
-  var dir = '/categories';
+  var dir = exports.options.categoryDir || '';
   var url = path.join(dir, encodeURIComponent(category));
 
   return '<a class=\'category\' href=\'' + url + '\'>' + category + '</a>';
