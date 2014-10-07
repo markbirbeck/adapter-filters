@@ -7,7 +7,7 @@ var facade = require('..');
 
 describe('Octopress', function(){
   var categoryDir = '/categories';
-  var filters = facade('octopress');
+  var filters = facade('octopress', {categoryDir: categoryDir});
 
   describe('#category_link()', function(){
     it('should create link from a category', function(){
