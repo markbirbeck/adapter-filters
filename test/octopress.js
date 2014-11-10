@@ -316,7 +316,7 @@ describe('Octopress', function(){
   describe('#titlecase()', function(){
     it('should turn all words to titlecase', function(){
       filters
-        .titlecase('A Film Title')
+        .titlecase('a film title')
         .should.equal('A Film Title');
     });
 
