@@ -24,7 +24,8 @@
   "dependencies": {
     "lodash": "~2.4.1",
     "strftime": "~0.8.2",
-    "titlecase": "~1.0.2"
+    "titlecase": "~1.0.2",
+    "xml-escape": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "~1.21.0",
