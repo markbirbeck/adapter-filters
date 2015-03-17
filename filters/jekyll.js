@@ -3,6 +3,9 @@
  */
 
 var base = require('./base');
+var _ = require('lodash');
+
+_.extend(exports, require('./liquid'));
 
 /**
  * Allow non-camelcase naming:
