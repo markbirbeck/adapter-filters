@@ -6,6 +6,56 @@ describe('Liquid', function() {
   /**
    * These tests are derived from the samples at:
    *
+   * https://docs.shopify.com/themes/liquid-documentation/filters/string-filters#append
+   */
+
+  describe('#append()', function() {
+    it('should append characters to a string', function() {
+      filters
+        .append('sales', '.jpg')
+        .should.equal('sales.jpg');
+    });
+
+    it('should not fail on undefined', function() {
+      filters
+        .append('sales')
+        .should.equal('sales');
+      filters
+        .append()
+        .should.equal('');
+    });
+
+    it('should not fail on null', function() {
+      filters
+        .append('sales', null)
+        .should.equal('sales');
+      filters
+        .append(null, '.jpg')
+        .should.equal('.jpg');
+    });
+
+    it('should cope with numbers', function() {
+      filters
+        .append('sales', 123)
+        .should.equal('sales123');
+      filters
+        .append(123, '.jpg')
+        .should.equal('123.jpg');
+    });
+
+    it('should cope with booleans', function() {
+      filters
+        .append('sales', true)
+        .should.equal('salestrue');
+      filters
+        .append(true, 'sales')
+        .should.equal('truesales');
+    });
+  });
+
+  /**
+   * These tests are derived from the samples at:
+   *
    *  http://docs.shopify.com/themes/liquid-documentation/filters/additional-filters#date
    */
 

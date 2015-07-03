@@ -10,6 +10,7 @@ var base = require('./base');
  */
 /*jscs:disable requireCamelCaseOrUpperCaseIdentifiers*/
 
+exports.append = base.concat;
 exports.strip = base.trim;
 
 exports.date = function(date, format) {

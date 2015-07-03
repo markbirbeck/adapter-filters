@@ -4,6 +4,21 @@
 
 var strftime = require('strftime');
 
+exports.concat = function(a, b) {
+  if (!b) {
+    b = '';
+  } else if (typeof b !== 'string') {
+    b = String(b);
+  }
+
+  if (!a) {
+    a = '';
+  } else if (typeof a !== 'string') {
+    a = String(a);
+  }
+  return a.concat(b);
+};
+
 exports.condenseSpaces = function(s) {
   if (typeof s !== 'string') {
     s = String(s);
