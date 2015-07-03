@@ -10,7 +10,7 @@ var _ = require('lodash');
 /**
  * Allow non-camelcase naming:
  */
-/*jshint camelcase:false*/
+/*jscs:disable requireCamelCaseOrUpperCaseIdentifiers*/
 
 exports.condense_spaces = base.condenseSpaces;
 
@@ -18,12 +18,12 @@ exports.shorthand_url = base.extract.bind(null, /https?:\/\/(\S+)/);
 exports.strip_slash = base.extract.bind(null, /(.+|^)\/$/);
 exports.titlecase = base.titlecase;
 
-exports.category_links = function (categories){
+exports.category_links = function(categories) {
   var output = '';
 
-  if (categories){
-    if (!Array.isArray(categories)){
-      categories = [ categories ];
+  if (categories) {
+    if (!Array.isArray(categories)) {
+      categories = [categories];
     }
 
     /**
@@ -38,14 +38,14 @@ exports.category_links = function (categories){
   return output;
 };
 
-exports.category_link = function (category){
+exports.category_link = function(category) {
   var dir = exports.options.categoryDir || '';
   var url = path.join(dir, encodeURIComponent(category));
 
   return '<a class=\'category\' href=\'' + url + '\'>' + category + '</a>';
 };
 
-exports.expand_urls = function (s, url){
+exports.expand_urls = function(s, url) {
   return base.replace(
     '(\\s+(href|src)\\s*=\\s*["|\']{1})(/[^/>]{1}[^"\'>]*)',
     '$1' + ((!url || url === '') ? '/' : url) + '$3',

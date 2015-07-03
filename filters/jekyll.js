@@ -10,7 +10,7 @@ _.extend(exports, require('./liquid'));
 /**
  * Allow non-camelcase naming:
  */
-/*jshint camelcase:false*/
+/*jscs:disable requireCamelCaseOrUpperCaseIdentifiers*/
 
 /**
  * http://en.wikipedia.org/wiki/ISO_8601

@@ -4,8 +4,8 @@
 
 var strftime = require('strftime');
 
-exports.condenseSpaces = function (s){
-  if (typeof s !== 'string'){
+exports.condenseSpaces = function(s) {
+  if (typeof s !== 'string') {
     s = String(s);
   }
   return s.replace(/\s{2,}/g, ' ');
@@ -16,8 +16,8 @@ exports.condenseSpaces = function (s){
  * new functions:
  */
 
-exports.extract = function (re, s){
-  if (typeof s !== 'string'){
+exports.extract = function(re, s) {
+  if (typeof s !== 'string') {
     s = String(s);
   }
   var match = s.match(re);
@@ -25,14 +25,14 @@ exports.extract = function (re, s){
   return match ? match[1] : s;
 };
 
-exports.replace = function (re, rep, s){
-  if (typeof s !== 'string'){
+exports.replace = function(re, rep, s) {
+  if (typeof s !== 'string') {
     s = String(s);
   }
   return s.replace(new RegExp(re, 'gm'), rep);
 };
 
-exports.strftime = function (format, date){
+exports.strftime = function(format, date) {
   var d = new Date(date);
 
   /**
@@ -52,22 +52,22 @@ exports.strftime = function (format, date){
   return strftime(format, d);
 };
 
-exports.titlecase = function (s){
-  if (typeof s !== 'string'){
+exports.titlecase = function(s) {
+  if (typeof s !== 'string') {
     s = String(s);
   }
   return require('titlecase')(s);
 };
 
-exports.trim = function (s){
-  if (typeof s !== 'string'){
+exports.trim = function(s) {
+  if (typeof s !== 'string') {
     s = String(s);
   }
   return s.trim();
 };
 
 exports.xmlEscape = function(s) {
-  if (typeof s !== 'string'){
+  if (typeof s !== 'string') {
     s = String(s);
   }
   return require('xml-escape')(s);
