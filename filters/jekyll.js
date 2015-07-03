@@ -27,9 +27,4 @@ exports.date_to_rfc822 = base.strftime.bind(null, '%a, %d %b %Y %H:%M:%S %z');
 exports.date_to_string = base.strftime.bind(null, '%d %b %Y');
 exports.date_to_long_string = base.strftime.bind(null, '%d %B %Y');
 
-exports.xml_escape = function(s) {
-  if (typeof s !== 'string'){
-    s = String(s);
-  }
-  return require('xml-escape')(s);
-};
+exports.xml_escape = base.xmlEscape;

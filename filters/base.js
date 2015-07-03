@@ -65,3 +65,10 @@ exports.trim = function (s){
   }
   return s.trim();
 };
+
+exports.xmlEscape = function(s) {
+  if (typeof s !== 'string'){
+    s = String(s);
+  }
+  return require('xml-escape')(s);
+};
