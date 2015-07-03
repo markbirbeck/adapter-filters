@@ -6,14 +6,15 @@
 var facade = require('..');
 
 describe('Octopress', function(){
-  var filters = facade('octopress');
+  var categoryDir = '/categories';
+  var filters = facade('octopress', {categoryDir: categoryDir});
 
   describe('#category_link()', function(){
     it('should create link from a category', function(){
       filters
         .category_link('rdfa')
         .should.equal(
-          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/rdfa\'>rdfa</a>'
         );
     });
 
@@ -21,7 +22,7 @@ describe('Octopress', function(){
       filters
         .category_link('semantic web')
         .should.equal(
-          '<a class=\'category\' href=\'/categories/semantic%20web\'>semantic web</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/semantic%20web\'>semantic web</a>'
         );
     });
   });
@@ -31,7 +32,7 @@ describe('Octopress', function(){
       filters
         .category_links(['rdfa'])
         .should.equal(
-          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/rdfa\'>rdfa</a>'
         );
     });
 
@@ -39,8 +40,8 @@ describe('Octopress', function(){
       filters
         .category_links(['rdfa', 'semantic web'])
         .should.equal(
-          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>, ' +
-          '<a class=\'category\' href=\'/categories/semantic%20web\'>semantic web</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/rdfa\'>rdfa</a>, ' +
+          '<a class=\'category\' href=\'' + categoryDir + '/semantic%20web\'>semantic web</a>'
         );
     });
 
@@ -48,8 +49,8 @@ describe('Octopress', function(){
       filters
         .category_links(['xforms', 'c++'])
         .should.equal(
-          '<a class=\'category\' href=\'/categories/c%2B%2B\'>c++</a>, ' +
-          '<a class=\'category\' href=\'/categories/xforms\'>xforms</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/c%2B%2B\'>c++</a>, ' +
+          '<a class=\'category\' href=\'' + categoryDir + '/xforms\'>xforms</a>'
         );
     });
 
@@ -57,19 +58,19 @@ describe('Octopress', function(){
       filters
         .category_links('rdfa')
         .should.equal(
-          '<a class=\'category\' href=\'/categories/rdfa\'>rdfa</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/rdfa\'>rdfa</a>'
         );
 
       filters
         .category_links(123)
         .should.equal(
-          '<a class=\'category\' href=\'/categories/123\'>123</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/123\'>123</a>'
         );
 
       filters
         .category_links(true)
         .should.equal(
-          '<a class=\'category\' href=\'/categories/true\'>true</a>'
+          '<a class=\'category\' href=\'' + categoryDir + '/true\'>true</a>'
         );
     });
 
@@ -315,7 +316,7 @@ describe('Octopress', function(){
   describe('#titlecase()', function(){
     it('should turn all words to titlecase', function(){
       filters
-        .titlecase('A Film Title')
+        .titlecase('a film title')
         .should.equal('A Film Title');
     });
 

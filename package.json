@@ -1,6 +1,6 @@
 {
   "name": "adapter-filters",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Provides a range of filter functions that can be used with many different template libraries.",
   "keywords": [
     "adapter",
@@ -24,7 +24,8 @@
   "dependencies": {
     "lodash": "~2.4.1",
     "strftime": "~0.8.2",
-    "titlecase": "~1.0.2"
+    "titlecase": "~1.0.2",
+    "xml-escape": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "~1.21.0",

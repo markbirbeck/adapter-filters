@@ -1,3 +1,7 @@
+# 0.4 2015-07-03
+
+* Add xml_escape.
+
 # 0.3 2014-09-26
 
 * Add Octopress filters:

@@ -46,4 +46,12 @@ describe('Jekyll', function(){
         .should.equal('07 November 2008');
     });
   });
+
+  describe('#xml_escape()', function(){
+    it('should escape text for use within XML', function(){
+      filters
+        .xml_escape('<div>Tate & Lyle\'s sugar is "the best".</div>')
+        .should.equal('&lt;div&gt;Tate &amp; Lyle&apos;s sugar is &quot;the best&quot;.&lt;/div&gt;');
+    });
+  });
 });
