@@ -1,3 +1,7 @@
+# 0.5 2015-07-03
+
+* Add Jekyll#append.
+
 # 0.4 2015-07-03
 
 * Add xml_escape.
