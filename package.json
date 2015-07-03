@@ -1,6 +1,6 @@
 {
   "name": "adapter-filters",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Provides a range of filter functions that can be used with many different template libraries.",
   "keywords": [
     "adapter",
