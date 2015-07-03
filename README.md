@@ -33,4 +33,4 @@ transporter.use('compile', hbs({
 
 # Documentation
 
-See the [adapter-filters wiki](https://github.com/stakk/adapter-filters/wiki) for more detailed documentation, including which functions are implemented.
+See the [adapter-filters wiki](https://github.com/markbirbeck/adapter-filters/wiki) for more detailed documentation, including which functions are implemented.
