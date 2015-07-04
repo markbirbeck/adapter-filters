@@ -10,13 +10,13 @@
     "octopress",
     "template"
   ],
-  "homepage": "https://github.com/stakk/adapter-filters",
-  "bugs": "https://github.com/stakk/adapter-filters/issues",
+  "homepage": "https://github.com/markbirbeck/adapter-filters",
+  "bugs": "https://github.com/markbirbeck/adapter-filters/issues",
   "license": "MIT",
   "main": "./lib/adapter",
   "repository": {
     "type": "git",
-    "url": "http://github.com/stakk/adapter-filters.git"
+    "url": "http://github.com/markbirbeck/adapter-filters.git"
   },
   "scripts": {
     "test": "TZ=UTC mocha"
