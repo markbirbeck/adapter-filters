@@ -7,6 +7,8 @@ var path = require('path');
 var base = require('./base');
 var _ = require('lodash');
 
+_.extend(exports, require('./jekyll'));
+
 /**
  * Allow non-camelcase naming:
  */
