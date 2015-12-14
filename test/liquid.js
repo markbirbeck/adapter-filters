@@ -53,13 +53,40 @@ describe('Liquid', function() {
     });
   });
 
-  /**
-   * These tests are derived from the samples at:
-   *
-   *  http://docs.shopify.com/themes/liquid-documentation/filters/additional-filters#date
-   */
-
   describe('#date()', function() {
+    it('should not fail on undefined', function() {
+      filters
+        .date(undefined)
+        .should.equal('');
+      filters
+        .date()
+        .should.equal('');
+    });
+
+    it('should not fail on null', function() {
+      filters
+        .date(null)
+        .should.equal('');
+    });
+
+    it('should cope with numbers', function() {
+      filters
+        .date(123)
+        .should.equal('');
+    });
+
+    it('should cope with booleans', function() {
+      filters
+        .date(true)
+        .should.equal('');
+    });
+
+    /**
+     * These tests are derived from the samples at:
+     *
+     *  http://docs.shopify.com/themes/liquid-documentation/filters/additional-filters#date
+     */
+
     var date = 'Tue Apr 8 03:16:09 2014';
 
     it('Abbreviated weekday', function() {

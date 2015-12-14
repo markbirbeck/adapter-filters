@@ -48,6 +48,10 @@ exports.replace = function(re, rep, s) {
 };
 
 exports.strftime = function(format, date) {
+  if (typeof date !== 'string' && !(date instanceof Date)) {
+    return '';
+  }
+
   var d = new Date(date);
 
   /**
