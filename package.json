@@ -19,7 +19,9 @@
     "url": "http://github.com/markbirbeck/adapter-filters.git"
   },
   "scripts": {
-    "test": "TZ=UTC mocha"
+    "test": "TZ=UTC mocha",
+    "docker": "docker run -it -v \"${PWD}\":/usr/src/app adapter-filters",
+    "dockerbuild": "docker build -t adapter-filters ."
   },
   "dependencies": {
     "lodash": "~2.4.1",
