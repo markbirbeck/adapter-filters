@@ -20,6 +20,7 @@
   },
   "scripts": {
     "test": "TZ=UTC mocha",
+    "preversion": "npm test",
     "docker": "docker run -it -v \"${PWD}\":/usr/src/app adapter-filters",
     "dockerbuild": "docker build -t adapter-filters ."
   },
