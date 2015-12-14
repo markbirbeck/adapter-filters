@@ -182,6 +182,55 @@ describe('Octopress', function() {
     });
   });
 
+  describe('#format_date()', function() {
+    var date = 'July 22 2007';
+
+    it('format_date', function() {
+      filters
+        .format_date(date, 'ordinal')
+        .should.equal('Jul 22nd, 2007');
+      filters
+        .format_date(date)
+        .should.equal('Jul 22nd, 2007');
+      filters
+        .format_date(date, null)
+        .should.equal('Jul 22nd, 2007');
+      filters
+        .format_date(date, '')
+        .should.equal('Jul 22nd, 2007');
+    });
+
+    it('format', function() {
+      filters
+        .format_date(date, '%Y %m %d')
+        .should.equal('2007 07 22');
+    });
+  });
+
+  describe('#ordinalize()', function() {
+    var date = 'July 22 2007';
+
+    it('ordinalize', function() {
+      filters
+        .ordinalize(date)
+        .should.equal('Jul 22nd, 2007');
+    });
+
+    it('should cope with non-strings', function() {
+      filters
+        .ordinalize(123)
+        .should.equal('');
+
+      filters
+        .ordinalize(true)
+        .should.equal('');
+
+      filters
+        .ordinalize(null)
+        .should.equal('');
+    });
+  });
+
   describe('#raw_content()', function() {
     it('should extract raw content from a template with footer', function() {
       filters

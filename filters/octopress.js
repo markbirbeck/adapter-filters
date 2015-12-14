@@ -55,5 +55,14 @@ exports.expand_urls = function(s, url) {
   );
 };
 
+exports.ordinalize = base.strftime.bind(null, '%b %o, %Y');
+
 exports.raw_content = base.extract.bind(null,
     /<div class="entry-content">([\s\S]*)?<\/div>\s*<(footer|\/article)>/);
+
+exports.format_date = function(date, format) {
+  if (!format || format === 'ordinal' || format === '') {
+    return exports.ordinalize(date);
+  }
+  return exports.date(date, format);
+}
